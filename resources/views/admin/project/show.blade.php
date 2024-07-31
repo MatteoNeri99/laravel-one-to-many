@@ -7,7 +7,15 @@
         <h5 class="card-title">Titolo: {{$project->title}}</h5>
         <h6 class="card-subtitle mb-2 text-body-secondary">Id: {{$project->id}}</h6>
         <p class="card-text">Titolo: {{$project->title}} </p>
-        <p>Tipo: {{ $project->type->name }}</p>
+        @if ($project->type)
+
+            <p>{{$project->type->name}}</p>
+
+        @else
+
+            <p>----</p>
+
+        @endif
         <p>descrizione: {{$project->description}} </p>
         <p> date: {{$project->date}} </p>
         <img class="img-fluid" src="{{$project->image}}" alt="{{$project->title}}">
