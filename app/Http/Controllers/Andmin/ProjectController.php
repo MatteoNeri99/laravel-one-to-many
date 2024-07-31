@@ -23,8 +23,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $types=Type::all();
         $project=new Project();
-        return view ('admin\project\create', compact('project'));
+        return view ('admin\project\create', compact('project', 'types'));
     }
 
     /**
@@ -34,6 +35,7 @@ class ProjectController extends Controller
     {
         $data=$request->validate([
             'title' => 'required|max:255|min:4',
+            'type_id'=> 'required|integer|exists:types,id',
             'date'  =>  'required|date',
             'description'  => 'required|max:255|min:4',
             'image'  => 'nullable'
@@ -54,10 +56,10 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(Project $project, Type $type)
     {
         //
-        return view ('admin\project\show' , compact('project'));
+        return view ('admin\project\show' , compact('project','type'));
     }
 
     /**
@@ -65,7 +67,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view ('admin.project.edit', compact('project'));
+        $types=Type::all();
+        return view ('admin.project.edit', compact('project','types'));
     }
 
     /**
@@ -75,6 +78,7 @@ class ProjectController extends Controller
     {
         $data=$request->validate([
             'title' => 'required|max:255|min:4',
+            'type_id'=> 'required|integer|exists:types,id',
             'date'  =>  'required|date',
             'description'  => 'required|max:255|min:4',
             'image'  => 'nullable',

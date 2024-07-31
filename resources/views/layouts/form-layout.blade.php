@@ -34,9 +34,31 @@
 
             <div class="mb-3">
 
+                <select class="form-select" aria-label="Defaul select example" name="type_id" id="type_id">
+                    @foreach ($types as $type)
+
+                        <option value="{{$type->id }}"
+
+                            {{$type->id == old('type_id' , $project->type_id) ? 'selected' : ''}}
+
+                            >{{ $type->name }}
+
+                        </option>
+
+                    @endforeach
+
+                </select>
+
+
+            </div>
+
+
+
+            <div class="mb-3">
+
                 <label for="date" class="form-label">date</label>
 
-                <input type="date" class="form-control" id="date" aria-describedby="date" name="date" value="{{ old('date', $project->date) }}">
+                <input type="dateTime" class="form-control" id="date" aria-describedby="date" name="date" value="{{ old('date', $project->date) }}">
 
               </div>
 

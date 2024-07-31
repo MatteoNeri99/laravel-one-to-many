@@ -19,7 +19,16 @@
             <tbody>
                 <td>{{$project->id}}</td>
                 <td>{{$project->title}}</td>
-                <td>{{$project->type_id}}</td>
+                @if ($project->type)
+
+                  <td>{{$project->type->name}}</td>
+
+                @else
+
+                    <td>----</td>
+
+                @endif
+
                 <td>{{$project->date}}</td>
 
                 <td> <a href="{{ Route('admin.projects.show', $project) }}" class="btn btn-primary">Scopri di più</a> </td>
