@@ -63,7 +63,7 @@
             <button type="submit" class="btn btn-primary">Submit</button>
 
             <a href="{{ Route('admin.projects.index') }}" class="btn btn-secondary">Torna alla lista</a>
-          </form>
+        </form>
 
     </div>
 </div>

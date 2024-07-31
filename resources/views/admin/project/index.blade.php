@@ -19,19 +19,17 @@
                 <td>{{$project->id}}</td>
                 <td>{{$project->title}}</td>
                 <td>{{$project->date}}</td>
-                <td>azioni</td>
-
 
                 <td> <a href="{{ Route('admin.projects.show', $project) }}" class="btn btn-primary">Scopri di più</a> </td>
                  <td> <a href="{{ Route('admin.projects.edit', $project) }}" class="btn btn-success">Modifica</a> </td>
-                <td><form action="{{ Route('admin.projects.destroy', $project) }}" method="POSt" class="d-inline-block">
+                <td><form action="{{ Route('admin.projects.destroy', $project) }}"  method="POSt" class="d-inline-block">
 
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-warning">Elimina</button>
 
-               </form></td>
-                @endforeach
+                </form></td>
+        @endforeach
 
             </tbody>
 
@@ -39,6 +37,8 @@
 
     </table>
 
+</div>
 
+@endsection
 
 

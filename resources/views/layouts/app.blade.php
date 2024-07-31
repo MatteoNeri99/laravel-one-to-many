@@ -43,6 +43,11 @@
                                 </li>
                             @endif
 
+                            @if (Route::has('admin.projects.index'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.projects.index') }}">{{ __('admin.projects.index') }}</a>
+                                </li>
+                            @endif
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
